@@ -9,6 +9,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.*
 import androidx.compose.ui.tooling.preview.Preview
 
 class BotonesActivity : ComponentActivity() {

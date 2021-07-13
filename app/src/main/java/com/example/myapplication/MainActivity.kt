@@ -26,6 +26,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.myapplication.ui.theme.MyApplicationTheme
+import com.google.accompanist.coil.rememberCoilPainter
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,59 +40,13 @@ class MainActivity : ComponentActivity() {
     @Composable
     fun App() {
         MyApplicationTheme() {
-            Scaffold { innerPadding ->
-                Example3()
-            }
-        }
-    }
-
-    // Lista
-    @Composable
-    fun Example1() {
-        Column {
-            repeat(50) {
-                Text(text = "Item #$it")
-            }
-        }
-    }
-
-    // Lista con scroll
-    @Composable
-    fun Example2() {
-        val scrollState = rememberScrollState()
-
-        Column(Modifier.verticalScroll(scrollState)) {
-            repeat(50) {
-                Text(text = "Item #$it")
-            }
-        }
-    }
-
-    // Lista perezosa (solo carga lo que se ve)
-    @Composable
-    fun Example3() {
-        var scrollState = rememberLazyListState()
-
-        LazyColumn(state = scrollState) {
-            items(50) {
-                Text(text = "Item #$it")
-            }
+            Example()
         }
     }
 
     @Composable
-    fun Example4() {
+    fun Example() {
 
     }
-
-    @Composable
-    fun Example4_ImageItem(index : Int) {
-        Row(verticalAlignment = Alignment.CenterVertically)
-        {
-
-        }
-
-    }
-
 
 }
