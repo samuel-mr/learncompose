@@ -5,9 +5,11 @@ import android.os.PersistableBundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.*
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.*
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,7 +24,30 @@ class BotonesActivity : ComponentActivity() {
 
     @Preview
     @Composable
-    fun Button1() {
+    fun ButtonBarApp() {
+        ButtonBar(onOk = { }, onCancel = {})
+    }
+
+    @Composable
+    fun ButtonBar(
+        onOk: () -> Unit,
+        onCancel: () -> Unit,
+        modifierOk : Modifier = Modifier,
+        modifierCancel : Modifier = Modifier
+    ) {
+        Row() {
+            Button(onOk, modifierOk) {
+                Text("Ok")
+            }
+            Button(onCancel, modifierCancel) {
+                Text("Cancelar")
+            }
+        }
+    }
+
+    @Preview
+    @Composable
+    fun BotonBasico() {
         var counter: Int by remember {
             mutableStateOf(0)
         }
