@@ -47,28 +47,6 @@ class ListasImagenesActivity : ComponentActivity(){
         }
     }
 
-    // Lista
-    @Composable
-    fun Example1() {
-        Column {
-            repeat(50) {
-                Text(text = "Item #$it")
-            }
-        }
-    }
-
-    // Lista con scroll
-    @Composable
-    fun Example2() {
-        val scrollState = rememberScrollState()
-
-        Column(Modifier.verticalScroll(scrollState)) {
-            repeat(50) {
-                Text(text = "Item #$it")
-            }
-        }
-    }
-
     // Lista perezosa (solo carga lo que se ve)
     @Composable
     fun Example3() {

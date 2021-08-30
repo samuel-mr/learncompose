@@ -22,6 +22,25 @@ class BotonesActivity : ComponentActivity() {
         }
     }
 
+    @Preview(showBackground = true)
+    @Composable
+    fun BotonesBasico() {
+        Column() {
+
+            Button(onClick = { /*TODO*/ }) {
+                Text(text = "Uno")
+                Text(text = "Dos")
+                Text(text = "Tres")
+            }
+            Button(
+                onClick = { /*TODO*/ },
+                colors = ButtonDefaults.textButtonColors(backgroundColor = Color.Red)
+            ) {
+                Text("backgroundColor = Color.Red")
+            }
+        }
+    }
+
     @Preview
     @Composable
     fun ButtonBarApp() {
@@ -32,8 +51,8 @@ class BotonesActivity : ComponentActivity() {
     fun ButtonBar(
         onOk: () -> Unit,
         onCancel: () -> Unit,
-        modifierOk : Modifier = Modifier,
-        modifierCancel : Modifier = Modifier
+        modifierOk: Modifier = Modifier,
+        modifierCancel: Modifier = Modifier
     ) {
         Row() {
             Button(onOk, modifierOk) {

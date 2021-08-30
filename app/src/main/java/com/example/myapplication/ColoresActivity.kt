@@ -108,6 +108,15 @@ class ColoresActivity : ComponentActivity() {
             Surface(color = Color.Yellow) {
                 Text("Amarillo")
             }
+            Surface(color = Color.Yellow.copy(alpha = 0.6f)) {
+                Text("Amarillo 60%")
+            }
+            Surface(color = Color.Yellow.copy(alpha = 0.4f)) {
+                Text("Amarillo 40%")
+            }
+            Surface(color = Color.Yellow.copy(alpha = 0.2f)) {
+                Text("Amarillo 20%")
+            }
             Surface(color = Color.Red) {
                 Text("Rojo")
             }

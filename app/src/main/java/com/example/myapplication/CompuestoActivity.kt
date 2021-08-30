@@ -60,4 +60,24 @@ class CompuestoActivity : ComponentActivity(){
             text = "Hola $name"
         )
     }
+
+
+
+
+    @Preview(showBackground = true)
+    @Composable
+    fun EjemploApp() {
+        Ejemplo1() {
+            Text("holas")
+        }
+    }
+
+    @Composable
+    fun Ejemplo1(
+        modifier: Modifier = Modifier,
+        rows: Int = 3,
+        content: @Composable () -> Unit
+    ) {
+        content()
+    }
 }
