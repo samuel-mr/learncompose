@@ -47,7 +47,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyApplicationTheme() {
-                com.example.myapplication.formulario.App()
+                AppBarDefaults
             }
         }
     }

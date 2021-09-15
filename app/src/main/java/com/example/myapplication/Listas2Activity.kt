@@ -5,19 +5,18 @@ import android.os.PersistableBundle
 import android.widget.SimpleExpandableListAdapter
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -78,5 +77,37 @@ class Listas2Activity : ComponentActivity() {
 
         }
     }
+}
 
+@Preview(showBackground = true)
+@Composable
+fun Seleccionable() {
+
+    val option1 = Color.Red
+    val option2 = Color.Blue
+
+    var selectedOption by remember { mutableStateOf(option1) }
+
+    Column {
+        Text("Selected: $selectedOption")
+        Row {
+            listOf(option1, option2).forEach { color ->
+                val selected = selectedOption == color
+                Box(
+                    Modifier
+                        .size(100.dp)
+                        .background(color = color)
+                        .border(
+                            1.dp,
+                            color = if (selected) Color.Red else Color.White,
+                            shape = RectangleShape
+                        )
+                        .selectable(
+                            selected = selected,
+                            onClick = { selectedOption = color }
+                        )
+                )
+            }
+        }
+    }
 }

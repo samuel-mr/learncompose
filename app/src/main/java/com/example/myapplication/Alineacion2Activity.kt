@@ -211,14 +211,14 @@ class Alineacion2Activity : ComponentActivity() {
                     .then(Modifier.align(Alignment.CenterHorizontally)),
                 onClick = {}
             ) {
-                Text("Propiedad then+align")
+                Text("function then + align")
             }
             Button(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally),
                 onClick = {}
             ) {
-                Text("Propiedad align")
+                Text("function align")
             }
         }
     }

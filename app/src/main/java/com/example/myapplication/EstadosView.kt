@@ -1,6 +1,7 @@
 package com.example.myapplication.estados
 
 import android.os.Bundle
+import android.widget.EditText
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.*
 import androidx.compose.foundation.*
@@ -19,6 +20,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.*
+import kotlin.math.log
 
 
 @Preview(name = "2 maneras de declarar los 'Estados'")
@@ -110,5 +112,32 @@ fun Forma1_Items(items: SnapshotStateList<String>) {
         Button(onClick = { items.add("Nuevo") }) {
             Text(text = "Agregar")
         }
+    }
+}
+
+@Preview(showBackground = true, name = "Remember + sobrecarga")
+@Composable
+fun Remember_Sobrecarga() {
+    var username by remember {
+        mutableStateOf("")
+    }
+    var loginEnabled by remember(key1 = username) {
+        mutableStateOf(
+            username.isNotEmpty()
+        )
+    }
+
+    Column() {
+        TextField(value = username, onValueChange = { username = it })
+        Row() {
+            Button(
+                onClick = { /*TODO*/ },
+                enabled = loginEnabled,
+                modifier = Modifier.align(Alignment.CenterVertically)
+            ) {
+                Text("Aceptar")
+            }
+        }
+
     }
 }
