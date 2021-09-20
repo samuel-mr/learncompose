@@ -28,6 +28,7 @@ fun TextoPersonalizoPreview() {
 
 /**
  * Source: https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/package-summary#BasicTextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,androidx.compose.ui.text.input.VisualTransformation,kotlin.Function1,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Brush,kotlin.Function1)
+ * Tambien ver (pendiente): https://medium.com/@kamranramzan098/working-with-textfield-in-android-compose-ui-6d3038a80060
  */
 @Composable
 fun TextoPersonalizoApp() {
