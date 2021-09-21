@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.texto
 
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -19,9 +19,13 @@ import androidx.compose.ui.text.style.*
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.ui.theme.MyApplicationTheme
 
+/**
+ * Source: https://alexzh.com/jetpack-compose-styling-text/
+ */
 class TipografiaActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
@@ -84,6 +88,24 @@ class TipografiaActivity : ComponentActivity() {
             Text("fontWeight = FontWeight.W700", fontWeight = FontWeight.W700)
             Text("fontWeight = FontWeight.W800", fontWeight = FontWeight.W800)
             Text("fontWeight = FontWeight.W900", fontWeight = FontWeight.W900)
+        }
+    }
+
+    @Preview(name = "letterSpacing", showBackground = true)
+    @Composable
+    fun Demo12() {
+        val texto = "Para este subitulo yo micro"
+        Column() {
+            Text(texto)
+            ___SubTitulo___("letterSpacing em")
+            Text(texto,  style = TextStyle(letterSpacing = 0.1.em))
+            Text(texto,  style = TextStyle(letterSpacing = 0.2.em))
+            ___SubTitulo___("letterSpacing sp")
+            Text(texto,  style = TextStyle(letterSpacing = 0.5.sp))
+            Text(texto,  style = TextStyle(letterSpacing = 1.sp))
+            Text(texto,  style = TextStyle(letterSpacing = 2.sp))
+            Text(texto,  style = TextStyle(letterSpacing = 3.sp))
+            Text(texto,  style = TextStyle(letterSpacing = 5.sp))
         }
     }
 

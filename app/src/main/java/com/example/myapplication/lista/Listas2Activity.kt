@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.lista
 
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -25,6 +25,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.myapplication.R
 
 class Listas2Activity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {

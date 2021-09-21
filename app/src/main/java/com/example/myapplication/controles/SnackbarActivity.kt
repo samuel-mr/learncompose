@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.controles
 
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -20,7 +20,7 @@ import androidx.compose.ui.graphics.*
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.*
 
-class LinearProgressIndicatorActivity : ComponentActivity() {
+class SnackbarActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
         setContent {
@@ -30,37 +30,27 @@ class LinearProgressIndicatorActivity : ComponentActivity() {
 
     @Preview(showBackground = true)
     @Composable
-    fun Demo1(){
-        var progress by remember { mutableStateOf(0.1f) }
-        val animatedProgress = animateFloatAsState(
-            targetValue = progress,
-            animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec
-        ).value
+    fun Demo() {
+        Column() {
+            val snackbarVisibleState = remember { mutableStateOf(true) }
 
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-
-            Spacer(Modifier.height(30.dp))
-            Text("Infinito")
-            LinearProgressIndicator()
-
-            Spacer(Modifier.height(30.dp))
-            Text("Hacer clic para aumentar o disminuir")
-            LinearProgressIndicator(progress = animatedProgress)
-            Spacer(Modifier.height(30.dp))
-            OutlinedButton(
-                onClick = {
-                    if (progress < 1f) progress += 0.1f
+            Button(onClick = { snackbarVisibleState.value = !snackbarVisibleState.value }) {
+                if (snackbarVisibleState.value) {
+                    Text("Hide Snackbar")
+                } else {
+                    Text("Show Snackbar")
                 }
-            ) {
-                Text("Increase")
             }
+            if (snackbarVisibleState.value) {
+                Snackbar(
 
-            OutlinedButton(
-                onClick = {
-                    if (progress > 0f) progress -= 0.1f
-                }
-            ) {
-                Text("Decrease")
+                    action = {
+                        Button(onClick = {}) {
+                            Text("MyAction")
+                        }
+                    },
+                    modifier = Modifier.padding(8.dp)
+                ) { Text(text = "This is a snackbar!") }
             }
         }
     }

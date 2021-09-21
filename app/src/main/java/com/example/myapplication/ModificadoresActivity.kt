@@ -31,13 +31,17 @@ class ModificadoresActivity : ComponentActivity() {
 
     fun Modifier.fancy(level: Float) = this.then(FancyModifier(level))
 
+    fun Modifier.tamaño() = this
+        .height(30.dp)
+        .width(85.dp)
+
     @Preview
     @Composable
     fun Textos() {
         Text(
             text = "Hola!",
             style = TextStyle(color = Color.White),
-            modifier = Modifier.fancy(10f)
+            modifier = Modifier.tamaño()
         )
     }
 

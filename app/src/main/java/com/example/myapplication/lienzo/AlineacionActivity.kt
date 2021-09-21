@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.lienzo
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
