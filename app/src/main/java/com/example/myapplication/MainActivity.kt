@@ -63,7 +63,7 @@ fun Comentario(text: String, comentario: String? = null) {
         Text(
             text = text,
             style = TextStyle(fontSize = 12.sp, color = Color.Gray),
-            modifier = Modifier.padding(top = 5.dp, bottom = 2.dp)
+            modifier = Modifier.padding(top = 7.dp, bottom = 2.dp)
         )
         if (!comentario.isNullOrEmpty()) {
             Spacer(modifier = Modifier.weight(1f))
