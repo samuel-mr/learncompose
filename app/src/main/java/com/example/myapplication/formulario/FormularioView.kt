@@ -47,10 +47,18 @@ fun App_Formulario() {
 
     Column(modifier = Modifier.background(Color.LightGray)) {
         Row {
+            DisplayComposable("", modifier = Modifier.align(Alignment.CenterVertically))
+            TextField(
+                value = "widthIn",
+                onValueChange = {  },
+                modifier = Modifier.widthIn(50.dp)
+            )
+        }
+        Row {
             DisplayComposable("Nombre:", modifier = Modifier.align(Alignment.CenterVertically))
             TextField(
                 value = nombre,
-                onValueChange = {  nombre = it })
+                onValueChange = { nombre = it })
         }
         Row(verticalAlignment = Alignment.CenterVertically) {
             DisplayComposable("Apellido:")
