@@ -71,3 +71,8 @@ fun Comentario(text: String, comentario: String? = null) {
         }
     }
 }
+
+@Composable
+fun EspacioV() {
+    Spacer(modifier = Modifier.height(10.dp))
+}

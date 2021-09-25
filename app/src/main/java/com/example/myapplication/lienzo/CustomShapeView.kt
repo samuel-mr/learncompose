@@ -2,18 +2,9 @@ package com.example.myapplication
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.MailOutline
-import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.*
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
@@ -40,21 +31,28 @@ fun CustomShapePreview() {
 @Composable
 fun CustomShapeApp() {
     Column {
-        Text(
+        Comentario(
             text = "Muestra solo un margen izquierdo. Para esto el box tiene la propiedad boder.shape personalizada",
-            modifier = Modifier.background(Color.LightGray)
         )
-        Spacer(modifier = Modifier.height(10.dp))
-        BoxWithMarginPersonalized()
-    }
+        MargenPersonalizado_Manual()
 
+        Comentario(
+            text = "Lo mismo pero extraido a una clase",
+        )
+        MargenPersonalizado_ClaseExtraida_ejemplo1()
+        Comentario(
+            text = "Custom",
+        )
+        MargenPersonalizado_ClaseExtraida_ejemplo2()
+        MargenPersonalizado_ClaseExtraida_ejemplo3()
+    }
 }
 
 @Composable
-private fun BoxWithMarginPersonalized() {
+private fun MargenPersonalizado_Manual() {
     Box(modifier = Modifier
         .background(Color.LightGray)
-        .size(200.dp, 200.dp)
+        .size(width = 200.dp, height = 50.dp)
         .border(
             width = 16.dp,
             color = Color.Red,
@@ -78,6 +76,103 @@ private fun BoxWithMarginPersonalized() {
             }
         )
     ) {
-        Text("Solo margen izquierdo")
+        Text("Margen izquierdo personalziado")
+    }
+}
+
+@Composable
+fun MargenPersonalizado_ClaseExtraida_ejemplo1() {
+    Box(
+        Modifier
+            .size(100.dp, 50.dp)
+            .border(
+                width = 16.dp,
+                color = Color.Blue,
+                shape = OnlyLeftColorShape()
+            )
+    ) {
+        Text("Clase extraida")
+    }
+}
+
+/**
+ * Forma customizada extraida a una clase
+ */
+class OnlyLeftColorShape : Shape {
+    override fun createOutline(
+        size: Size,
+        layoutDirection: LayoutDirection,
+        density: Density
+    ): Outline {
+        return Outline.Generic(
+            // Just left border
+            Path().apply {
+                moveTo(0f, 0f)
+                lineTo(0f, size.height)
+                lineTo(16f, size.height)
+                lineTo(16f, 0f)
+                close()
+            }
+        )
+    }
+}
+
+
+@Composable
+fun MargenPersonalizado_ClaseExtraida_ejemplo2() {
+    Box(Modifier.border(width = 1.dp, color = Color.Red)) {
+        Box(
+            Modifier
+                .size(100.dp, 50.dp)
+                .border(
+                    width = 16.dp,
+                    color = Color.Blue,
+                    shape = OnlyLeftColorShape_Reducido()
+                )
+        ) {
+            Text("Hola")
+        }
+    }
+}
+
+/**
+ * Forma customizada extraida a una clase
+ */
+class OnlyLeftColorShape_Reducido : Shape {
+    override fun createOutline(
+        size: Size,
+        layoutDirection: LayoutDirection,
+        density: Density
+    ): Outline {
+        return Outline.Generic(
+            // Just left border
+            Path().apply {
+                moveTo(0f, 20f)
+                lineTo(0f, size.height - 20f)
+                lineTo(16f, size.height -20f)
+                lineTo(16f, 20f)
+                close()
+            }
+        )
+    }
+}
+
+@Composable
+fun MargenPersonalizado_ClaseExtraida_ejemplo3() {
+    Box(
+        Modifier
+            .size(100.dp, 50.dp)
+            .border(
+                width = 16.dp,
+                color = Color.Blue,
+                shape = OnlyLeftColorShape_Reducido()
+            )
+    ) {
+        Box(
+            Modifier
+                .border(width = 1.dp, color = Color.Red)
+                .fillMaxSize()) {
+            Text("Hola")
+        }
     }
 }
