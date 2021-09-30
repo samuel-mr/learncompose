@@ -96,6 +96,7 @@ class TipografiaActivity : ComponentActivity() {
     fun Demo12() {
         val texto = "Para este subitulo yo micro"
         Column() {
+            ___SubTitulo___("sin espaciado (normal)")
             Text(texto)
             ___SubTitulo___("letterSpacing em")
             Text(texto,  style = TextStyle(letterSpacing = 0.1.em))
@@ -116,10 +117,10 @@ class TipografiaActivity : ComponentActivity() {
 
         Column(modifier = Modifier.width(300.dp)) {
             ___SubTitulo___("Color")
-            Text("color = Color.Blue", color = Color.White)
+            Text("color = Color.Blue", color = Color.Green)
             Text("style = TextStyle(color = Color.Red)", style = TextStyle(color = Color.Red))
 
-            ___SubTitulo___("fontSize")
+            ___SubTitulo___("fontSize .sp")
 
             Text("fontSize = 5.sp", fontSize = 5.sp)
             Text("fontSize = 10.sp", fontSize = 10.sp)

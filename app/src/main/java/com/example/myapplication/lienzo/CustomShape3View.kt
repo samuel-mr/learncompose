@@ -59,24 +59,6 @@ fun Forma2() {
 
         val cornerRadius: Float = 45f
 
-        drawArc(
-            color = Color.Red,
-            startAngleDegrees = 90.0f,
-            sweepAngleDegrees = -90.0f,
-            useCenter = true,
-            topLeft = Offset.Zero,
-            size = 200.dp,
-            alpha = 1.0f,
-            style = Fill,
-            colorFilter = null,
-            blendMode = DefaultBlendMode
-            /* rect = Rect(
-             left = -cornerRadius,
-             top = -cornerRadius,
-             right = cornerRadius,
-             bottom = cornerRadius
-         ),*/
-        )
 
 
         drawPath(

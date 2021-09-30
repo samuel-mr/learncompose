@@ -189,6 +189,9 @@ class ColoresActivity : ComponentActivity() {
     @Composable
     fun Colores() {
         Column {
+            Surface() {
+                Text(text = ".toArgb()= ${Color.Yellow.toArgb()}")
+            }
             Surface(color = Color.Yellow) {
                 Text("Amarillo")
             }
