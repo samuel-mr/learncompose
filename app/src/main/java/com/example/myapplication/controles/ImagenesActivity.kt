@@ -40,7 +40,6 @@ class ImagenesActivity : ComponentActivity(){
         Column(
             modifier = Modifier.padding(16.dp)
         ){
-
             Image(
                 painter = painterResource(id = R.drawable.header),
                 contentDescription =  null,
