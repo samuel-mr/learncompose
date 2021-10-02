@@ -104,7 +104,7 @@ fun Inside1Preview() {
             Titulo(text = "contentScale: Inside (con Imagen Grande")
             Comentario(
                 text = "Escala la foto para que tanto el alto y ancho ingrese dentro de los límites manteniendo el aspect ratio (escenario: cuando quiero que si o si se muestra toda la foto)" +
-                        "alignment : indica que parte se debe mostrar."
+                        "alignment : indica la posición de la imagen."
             )
             Comentario(text = "alignment: TopStart")
             Box(modifier = Modifier.padding(2.dp)) {
@@ -157,7 +157,7 @@ fun Inside2Preview() {
         Column(modifier = Modifier.fillMaxSize()) {
             Titulo(text = "contentScale: Inside (con Imagen Pequeña)")
             Comentario(
-                text = "Si la imagen es más pequeña q su contenedor la imagen se mantendrá pequeña. aquí se comporta diferente a contentScale=Fit "
+                text = "Si la imagen es más pequeña q su contenedor la imagen se mantendrá pequeña. aquí se comporta diferente a contentScale=Fit(en el caso de Fit si es pequeña la imagen se agranda"
             )
             Comentario(text = "alignment: TopStart")
             Box(modifier = Modifier.padding(2.dp)) {
