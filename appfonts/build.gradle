@@ -4,12 +4,13 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 30
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.example.appfonts"
         minSdk 21
-        targetSdk 31
+        targetSdk 30
         versionCode 1
         versionName "1.0"
 
@@ -38,7 +39,7 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion compose_version
-        kotlinCompilerVersion '1.5.21'
+        kotlinCompilerVersion '1.5.10'
     }
     packagingOptions {
         resources {
@@ -48,6 +49,8 @@ android {
 }
 
 dependencies {
+
+    def nav_version = "2.3.5"
 
     implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'androidx.appcompat:appcompat:1.3.1'
@@ -62,4 +65,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+
+    //navegacion
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-compose:2.4.0-alpha06"
+
 }
