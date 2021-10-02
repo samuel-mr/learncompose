@@ -156,49 +156,21 @@ fun Inside2Preview() {
     MyApplicationTheme {
         Column(modifier = Modifier.fillMaxSize()) {
             Titulo(text = "contentScale: Inside (con Imagen Pequeña)")
-            Comentario(
-                text = "Si la imagen es más pequeña q su contenedor la imagen se mantendrá pequeña. aquí se comporta diferente a contentScale=Fit(en el caso de Fit si es pequeña la imagen se agranda"
-            )
-            Comentario(text = "alignment: TopStart")
-            Box(modifier = Modifier.padding(2.dp)) {
-                Image(
-                    painter = painterResource(id = R.drawable.rectangular_peque_a_readdeadredemption),
-                    contentDescription = null,
-                    contentScale = ContentScale.Inside,
-                    alignment = Alignment.TopStart,
-                    modifier = Modifier
-                        .height(270.dp)
-                        .width(300.dp)
-                        .background(Color.Green)
-                )
-            }
 
-            Comentario(text = "alignment: Center")
-            Box(modifier = Modifier.padding(2.dp)) {
-                Image(
-                    painter = painterResource(id = R.drawable.rectangular_peque_a_readdeadredemption),
-                    contentDescription = null,
-                    contentScale = ContentScale.Inside,
-                    alignment = Alignment.Center,
-                    modifier = Modifier
-                        .height(270.dp)
-                        .width(300.dp)
-                        .background(Color.Green)
-                )
-            }
 
             Comentario(text = "alignment: BottomEnd (alto = espacio restante)")
-            Box(modifier = Modifier.padding(2.dp)) {
+//            Box(modifier = Modifier.padding(2.dp) .width(300.dp).background(Color.Green)) {
                 Image(
-                    painter = painterResource(id = R.drawable.rectangular_peque_a_readdeadredemption),
+                    painter = painterResource(id = R.drawable.rectangular_grande_readdeadredemption),
                     contentDescription = null,
                     contentScale = ContentScale.Inside,
                     alignment = Alignment.BottomEnd,
                     modifier = Modifier
                         .width(300.dp)
+                        .height(150.dp)
                         .background(Color.Green)
                 )
-            }
+//            }
 
         }
     }
