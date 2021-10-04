@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -18,12 +19,15 @@ import androidx.compose.ui.unit.sp
 fun DesenfadadoView() {
     val estilo = TextStyle(fontSize = 24.sp)
     val mensaje = "Este es un Mensaje para La Gente"
-    Column(
-        Modifier
-            .fillMaxWidth()
-            .background(backgroundColor)
-    ) {
-        SuperTexto(mensaje, R.font.rock_salt, estilo)
+
+    androidx.compose.material.Surface() {
+
+        Column(
+            Modifier
+                .fillMaxWidth()
+        ) {
+            SuperTexto(mensaje, R.font.rock_salt, estilo)
+        }
     }
 }
 
@@ -33,23 +37,25 @@ fun ExoticoView() {
     val estilo = TextStyle(fontSize = 24.sp)
     val mensaje = "Estos son Los Cuentos Del más Allá"
 
-    Column(
-        Modifier
-            .fillMaxWidth()
-            .background(backgroundColor)
-    ) {
-        SuperTexto(mensaje, R.font.mystery_quest, estilo)
-        SuperTexto(mensaje, R.font.sirin_stencil, estilo)
-        SuperTexto(mensaje, R.font.sriracha, estilo)
-        SuperTexto(mensaje, R.font.lancelot, estilo)
-        SuperTexto(mensaje, R.font.glass_antiqua, estilo)
-        SuperTexto(mensaje, R.font.caesar_dressing, estilo)
-        SuperTexto(mensaje, R.font.modern_antiqua, estilo)
-        SuperTexto(mensaje, R.font.risque, estilo)
-        SuperTexto(mensaje, R.font.nova_cut, estilo)
-        SuperTexto(mensaje, R.font.nova_slim, estilo)
-        SuperTexto(mensaje, R.font.irish_grover, estilo)
-        SuperTexto(mensaje, R.font.bigelow_rules, estilo)
-        SuperTexto(mensaje, R.font.macondo_swash_caps, estilo)
+    androidx.compose.material.Surface() {
+
+        Column(
+            Modifier
+                .fillMaxWidth()
+        ) {
+            SuperTexto(mensaje, R.font.mystery_quest, estilo)
+            SuperTexto(mensaje, R.font.sirin_stencil, estilo)
+            SuperTexto(mensaje, R.font.sriracha, estilo)
+            SuperTexto(mensaje, R.font.lancelot, estilo)
+            SuperTexto(mensaje, R.font.glass_antiqua, estilo)
+            SuperTexto(mensaje, R.font.caesar_dressing, estilo)
+            SuperTexto(mensaje, R.font.modern_antiqua, estilo)
+            SuperTexto(mensaje, R.font.risque, estilo)
+            SuperTexto(mensaje, R.font.nova_cut, estilo)
+            SuperTexto(mensaje, R.font.nova_slim, estilo)
+            SuperTexto(mensaje, R.font.irish_grover, estilo)
+            SuperTexto(mensaje, R.font.bigelow_rules, estilo)
+            SuperTexto(mensaje, R.font.macondo_swash_caps, estilo)
+        }
     }
 }

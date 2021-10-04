@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -19,19 +20,20 @@ import androidx.compose.ui.unit.sp
 fun FuenteArimaView() {
     val estilo = TextStyle(fontSize = 18.sp)
     val mensaje = "Note: We review only"
+    Surface() {
 
-    Column(
-        Modifier
-            .fillMaxWidth()
-            .background(backgroundColor)
-    ) {
-        SuperTexto(mensaje, R.font.arima_madurai_light, estilo)
-        SuperTexto(mensaje, R.font.arima_madurai_extralight, estilo)
-        SuperTexto(mensaje, R.font.arima_madurai, estilo)
-        SuperTexto(mensaje, R.font.arima_madurai_medium, estilo)
-        SuperTexto(mensaje, R.font.arima_madurai_black, estilo)
-        SuperTexto(mensaje, R.font.arima_madurai_bold, estilo)
-        SuperTexto(mensaje, R.font.arima_madurai_extrabold, estilo)
+        Column(
+            Modifier
+                .fillMaxWidth()
+        ) {
+            SuperTexto(mensaje, R.font.arima_madurai_light, estilo)
+            SuperTexto(mensaje, R.font.arima_madurai_extralight, estilo)
+            SuperTexto(mensaje, R.font.arima_madurai, estilo)
+            SuperTexto(mensaje, R.font.arima_madurai_medium, estilo)
+            SuperTexto(mensaje, R.font.arima_madurai_black, estilo)
+            SuperTexto(mensaje, R.font.arima_madurai_bold, estilo)
+            SuperTexto(mensaje, R.font.arima_madurai_extrabold, estilo)
+        }
     }
 }
 
@@ -40,17 +42,18 @@ fun FuenteArimaView() {
 fun Fuente_Lato_View() {
     val estilo = TextStyle(fontSize = 18.sp)
     val mensaje = "Note: We review only"
+    androidx.compose.material.Surface() {
 
-    Column(
-        Modifier
-            .fillMaxWidth()
-            .background(backgroundColor)
-    ) {
-        SuperTexto(mensaje, R.font.lato_light, estilo)
-        SuperTexto(mensaje, R.font.lato_thin, estilo)
-        SuperTexto(mensaje, R.font.lato, estilo)
-        SuperTexto(mensaje, R.font.lato_black, estilo)
-        SuperTexto(mensaje, R.font.lato_bold, estilo)
+        Column(
+            Modifier
+                .fillMaxWidth()
+        ) {
+            SuperTexto(mensaje, R.font.lato_light, estilo)
+            SuperTexto(mensaje, R.font.lato_thin, estilo)
+            SuperTexto(mensaje, R.font.lato, estilo)
+            SuperTexto(mensaje, R.font.lato_black, estilo)
+            SuperTexto(mensaje, R.font.lato_bold, estilo)
+        }
     }
 }
 
@@ -61,18 +64,20 @@ fun Fuente_OpenSans_View() {
     //val mensaje = "Note: We review only"
     val mensaje = "VEGETARIAN"
 
-    Column(
-        Modifier
-            .fillMaxWidth()
-            .background(backgroundColor)
-    ) {
-        SuperTexto(mensaje, R.font.open_sans_light, estilo)
-        SuperTexto(mensaje, R.font.open_sans, estilo)
-        SuperTexto(mensaje, R.font.open_sans_semibold, estilo)
-        SuperTexto(mensaje, R.font.open_sans_bold, estilo)
-        SuperTexto(mensaje, R.font.open_sans_extrabold, estilo)
-        SuperTexto(mensaje, R.font.open_sans_condensed_light, estilo)
-        SuperTexto(mensaje, R.font.open_sans_condensed_bold, estilo)
+    androidx.compose.material.Surface() {
+
+        Column(
+            Modifier
+                .fillMaxWidth()
+        ) {
+            SuperTexto(mensaje, R.font.open_sans_light, estilo)
+            SuperTexto(mensaje, R.font.open_sans, estilo)
+            SuperTexto(mensaje, R.font.open_sans_semibold, estilo)
+            SuperTexto(mensaje, R.font.open_sans_bold, estilo)
+            SuperTexto(mensaje, R.font.open_sans_extrabold, estilo)
+            SuperTexto(mensaje, R.font.open_sans_condensed_light, estilo)
+            SuperTexto(mensaje, R.font.open_sans_condensed_bold, estilo)
+        }
     }
 }
 
@@ -80,18 +85,20 @@ fun Fuente_OpenSans_View() {
 @Composable
 fun Fuente_RobotoMono_View() {
     val estilo = TextStyle(fontSize = 18.sp)
-    val mensaje = "Note: We review only"
+    val mensaje = "VEGETARIAN"
 
-    Column(
-        Modifier
-            .fillMaxWidth()
-            .background(backgroundColor)
-    ) {
-        SuperTexto(mensaje, R.font.roboto_mono_thin, estilo)
-        SuperTexto(mensaje, R.font.roboto_mono_light, estilo)
-        SuperTexto(mensaje, R.font.roboto_mono, estilo)
-        SuperTexto(mensaje, R.font.roboto_mono_medium, estilo)
-        SuperTexto(mensaje, R.font.roboto_mono_bold, estilo)
+    androidx.compose.material.Surface() {
+
+        Column(
+            Modifier
+                .fillMaxWidth()
+        ) {
+            SuperTexto(mensaje, R.font.roboto_mono_thin, estilo)
+            SuperTexto(mensaje, R.font.roboto_mono_light, estilo)
+            SuperTexto(mensaje, R.font.roboto_mono, estilo)
+            SuperTexto(mensaje, R.font.roboto_mono_medium, estilo)
+            SuperTexto(mensaje, R.font.roboto_mono_bold, estilo)
+        }
     }
 }
 
@@ -101,21 +108,23 @@ fun Fuente_Nunito_View() {
     val estilo = TextStyle(fontSize = 18.sp)
     val mensaje = "Note: We review only"
 
-    Column(
-        Modifier
-            .fillMaxWidth()
-            .background(backgroundColor)
-    ) {
+    androidx.compose.material.Surface() {
+
+        Column(
+            Modifier
+                .fillMaxWidth()
+        ) {
 //        Text(mensaje, style = estilo.copy(foregroundCOlor), letterSpacing = 2)
-        // Text(text = "spacing", letterSpacing = 3)
-        Text(text = "spacing", style = TextStyle(letterSpacing = 2.em))
-        SuperTexto(mensaje, R.font.nunito_extralight, estilo)
-        SuperTexto(mensaje, R.font.nunito_light, estilo)
-        SuperTexto(mensaje, R.font.nunito, estilo)
-        SuperTexto(mensaje, R.font.nunito_black, estilo)
-        SuperTexto(mensaje, R.font.nunito_semibold, estilo)
-        SuperTexto(mensaje, R.font.nunito_bold, estilo)
-        SuperTexto(mensaje, R.font.nunito_extrabold, estilo)
+            // Text(text = "spacing", letterSpacing = 3)
+            Text(text = "spacing", style = TextStyle(letterSpacing = 2.em))
+            SuperTexto(mensaje, R.font.nunito_extralight, estilo)
+            SuperTexto(mensaje, R.font.nunito_light, estilo)
+            SuperTexto(mensaje, R.font.nunito, estilo)
+            SuperTexto(mensaje, R.font.nunito_black, estilo)
+            SuperTexto(mensaje, R.font.nunito_semibold, estilo)
+            SuperTexto(mensaje, R.font.nunito_bold, estilo)
+            SuperTexto(mensaje, R.font.nunito_extrabold, estilo)
+        }
     }
 }
 

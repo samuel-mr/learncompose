@@ -4,10 +4,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.InvertColors
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -15,39 +16,48 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.appfonts.ui.theme.MyApplicationTheme
 
-import android.graphics.ColorMatrix
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.res.painterResource
 
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.appfonts.ui.theme.*
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MyApplicationTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
-                    App()
-                }
+            val appTheme = remember { mutableStateOf(AppThemeState()) }
+            BaseView(appThemeState = appTheme.value) {
+                App(appTheme)
             }
         }
     }
 }
 
+@Composable
+fun BaseView(
+    appThemeState: AppThemeState,
+    content: @Composable () -> Unit
+) {
+//    val color = when (appThemeState.pallet) {
+//        ColorPallet.PURPLE -> Purple700
+//        ColorPallet.GREEN -> green700
+//        ColorPallet.ORANGE -> orange700
+//        ColorPallet.BLUE -> blue700
+//    }
+    EstilosTheme(darkTheme = appThemeState.darkTheme) {
+        content()
+    }
+
+}
 
 object Destinos {
     const val home = "home"
@@ -64,12 +74,12 @@ object Destinos {
 }
 
 @Composable
-fun App() {
+fun App(appTheme: MutableState<AppThemeState>) {
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = Destinos.home) {
         composable(Destinos.home) {
-            HomeView(navController = navController)
+            HomeView(navController = navController, appTheme)
         }
         composable(Destinos.elegantes) {
             EleganteView()
@@ -98,51 +108,6 @@ fun App() {
     }
 }
 
-@Composable
-fun HomeView(navController: NavHostController) {
-    Column(Modifier.wrapContentSize(align = Alignment.Center)) {
-        NavButton(
-            navController = navController,
-            destinationView = Destinos.elegantes,
-            "Elegantes"
-        )
-        NavButton(
-            navController = navController,
-            destinationView = Destinos.remarcado,
-            "Remacado"
-        )
-        NavButton(
-            navController = navController,
-            destinationView = Destinos.fuente_arima,
-            "Fuente: Arima"
-        )
-        NavButton(
-            navController = navController,
-            destinationView = Destinos.fuente_lato,
-            "Fuente: Lato"
-        )
-        NavButton(
-            navController = navController,
-            destinationView = Destinos.fuente_opensans,
-            "Fuente: OpenSans"
-        )
-        NavButton(
-            navController = navController,
-            destinationView = Destinos.fuente_robotomono,
-            "Fuente: Roboto Mono"
-        )
-        NavButton(
-            navController = navController,
-            destinationView = Destinos.desenfadado,
-            "Desenfadado"
-        )
-        NavButton(
-            navController = navController,
-            destinationView = Destinos.exotico,
-            "Exótico"
-        )
-    }
-}
 
 @Composable
 fun NavButton(
@@ -158,7 +123,7 @@ fun NavButton(
             .fillMaxWidth()
     ) {
         Row() {
-            Text(text = body, fontSize = 12.sp, modifier = Modifier.padding(3.dp))
+            Text(text = body, fontSize = 18.sp, modifier = Modifier.padding(3.dp))
             Spacer(modifier = Modifier.weight(1f))
             if (comment != null) {
                 Text(text = comment)
@@ -173,10 +138,11 @@ fun SuperTexto(texto: String, fuente: Int, estilo: TextStyle, modifier: Modifier
     Text(
         text = texto,
         fontFamily = FontFamily(Font(fuente)),
-        style = estilo.copy(color = foregroundCOlor),
+        style = estilo,
         modifier = modifier
     )
 }
 
-val backgroundColor = Color.Black
-val foregroundCOlor = Color.White
+enum class ColorPallet {
+    PURPLE, GREEN, ORANGE, BLUE
+}
