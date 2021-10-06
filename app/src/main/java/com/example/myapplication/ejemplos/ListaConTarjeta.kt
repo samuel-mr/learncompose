@@ -38,8 +38,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import coil.transform.CircleCropTransformation
 import com.example.myapplication.R
+import com.example.myapplication.ui.theme.MISUPERCOLOR
 import com.example.myapplication.ui.theme.MyApplicationTheme
-import com.example.myapplication.ui.theme.lightGreen
 import com.google.accompanist.coil.rememberCoilPainter
 import java.lang.Appendable
 
@@ -145,7 +145,7 @@ fun ProfilePicture(foto: Int, isActive: Boolean) {
         shape = CircleShape,
         border = BorderStroke(
             width = 2.dp,
-            color = if (isActive) MaterialTheme.colors.lightGreen else Color.Red
+            color = if (isActive) MaterialTheme.colors.MISUPERCOLOR else Color.Red
         )
     ) {
         Image(

@@ -39,8 +39,6 @@ import androidx.lifecycle.ViewModel
 import coil.transform.CircleCropTransformation
 import com.example.myapplication.ejemplos.App
 import com.example.myapplication.ui.theme.MyApplicationTheme
-import com.example.myapplication.ui.theme.lightGreen
-import com.google.accompanist.coil.rememberCoilPainter
 import java.lang.Appendable
 
 class MainActivity : ComponentActivity() {
