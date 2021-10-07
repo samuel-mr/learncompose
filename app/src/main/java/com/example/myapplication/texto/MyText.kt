@@ -80,6 +80,15 @@ fun TextFontWeight(){
 
 @Preview
 @Composable
+fun TextFontStyle(){
+    Column {
+        Text(text = "text", fontStyle = FontStyle.Italic)
+        Text(text = "text", fontStyle = FontStyle.Normal)
+    }
+}
+
+@Preview
+@Composable
 fun TextFontFamily(){
     Column {
         Text(text = "text", fontFamily = FontFamily.Default)
@@ -106,6 +115,8 @@ fun TextModifierSize(){
     Column {
         Text(text = "text", modifier = Modifier.size(250.dp))
         Text(text = "text", modifier = Modifier.size(width = 200.dp, height = 100.dp))
+        Text(text = "text", modifier = Modifier.height(25.dp))
+        Text(text = "text", modifier = Modifier.width(35.dp))
     }
 }
 @Preview
@@ -127,17 +138,17 @@ fun TextModifierFillMaxSize(){
 
 @Preview
 @Composable
-fun TextSize(){
-    Text(text = "text abc def ghi jkm.",
-        modifier = Modifier.size(100.dp)
-    )
-}
-
-@Preview
-@Composable
 fun TextAlignCenter(){
     Text(text = "text abc def ghi jkm.",
         textAlign = TextAlign.Center,
+        modifier = Modifier.size(100.dp)
+    )
+}
+@Preview
+@Composable
+fun TextAlignJustify(){
+    Text(text = "text abc def ghi jkm.",
+        textAlign = TextAlign.Justify,
         modifier = Modifier.size(100.dp)
     )
 }
@@ -151,6 +162,15 @@ fun TextAlignStart(){
 }
 @Preview
 @Composable
+fun TextAlignEnd(){
+    Text(text = "text abc def ghi jkm.",
+        textAlign = TextAlign.End,
+        modifier = Modifier.size(100.dp)
+    )
+}
+
+@Preview
+@Composable
 fun TextAlignRight(){
     Text(text = "text abc def ghi jkm.",
         textAlign = TextAlign.Right,
@@ -162,23 +182,6 @@ fun TextAlignRight(){
 fun TextAlignLeft(){
     Text(text = "text abc def ghi jkm.",
         textAlign = TextAlign.Left,
-        modifier = Modifier.size(100.dp)
-    )
-}
-
-@Preview
-@Composable
-fun TextAlignJustify(){
-    Text(text = "text abc def ghi jkm.",
-        textAlign = TextAlign.Justify,
-        modifier = Modifier.size(100.dp)
-    )
-}
-@Preview
-@Composable
-fun TextAlignEnd(){
-    Text(text = "text abc def ghi jkm.",
-        textAlign = TextAlign.End,
         modifier = Modifier.size(100.dp)
     )
 }
@@ -207,7 +210,7 @@ fun TextMaxLines(){
 @Composable
 fun TextOverFlowEllipsis(){
     Text(text = "text abc def ghi jkm lnm opq rst.",
-        modifier = Modifier.width(100.dp),
+        modifier = Modifier.size(50.dp),
         maxLines = 1 ,
         overflow = TextOverflow.Ellipsis
     )
